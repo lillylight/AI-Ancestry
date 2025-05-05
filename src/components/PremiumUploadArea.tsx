@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef } from "react";
 import { useDropzone } from "react-dropzone";
-import { FaCloudUploadAlt } from "react-icons/fa";
 
 interface PremiumUploadAreaProps {
   onDrop: (files: File[]) => void;
@@ -26,7 +25,37 @@ const PremiumUploadArea: React.FC<PremiumUploadAreaProps> = ({ onDrop, isUploadi
     >
       <input {...getInputProps()} ref={inputRef} />
       <div className="flex flex-col items-center justify-center py-10 animate-premium-pop">
-        <FaCloudUploadAlt size={60} className="mb-4 text-blue-500 animate-bounce" />
+        {/* Premium, elegant SVG icon replaces FaCloudUploadAlt */}
+        <svg
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="mb-4 animate-fade-in"
+          style={{ filter: 'drop-shadow(0 4px 18px #b8d0f7)', background: 'linear-gradient(135deg, #f7fafc 60%, #e0e7ef 100%)', borderRadius: 18 }}
+        >
+          <defs>
+            <linearGradient id="premiumGradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#2f80ed" />
+              <stop offset="1" stopColor="#6d47d6" />
+            </linearGradient>
+            <linearGradient id="shine" x1="0" y1="16" x2="64" y2="48" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#fff" stopOpacity="0.85" />
+              <stop offset="1" stopColor="#fff" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          {/* Crown shape for premium feel */}
+          <path d="M8 44L16 20L32 44L48 20L56 44Z" fill="url(#premiumGradient)" stroke="#fff" strokeWidth="2.5" />
+          {/* Shine effect */}
+          <ellipse cx="32" cy="27" rx="14" ry="6" fill="url(#shine)" />
+          {/* Diamond in the center */}
+          <rect x="28" y="30" width="8" height="8" rx="2" fill="#fff" stroke="#6d47d6" strokeWidth="1.5" transform="rotate(45 32 34)" />
+          {/* Subtle sparkles */}
+          <circle cx="16" cy="16" r="1.5" fill="#fff" />
+          <circle cx="48" cy="12" r="1" fill="#fff" />
+          <circle cx="54" cy="28" r="1.2" fill="#fff" />
+        </svg>
         <p className="text-2xl font-extrabold text-blue-600 mb-1 animate-gradient-text">Upload Photo</p>
         <p className="text-base text-gray-500 mb-2 animate-fade-in">PNG, JPG, JPEG, WEBP, GIF up to 20MB</p>
         {isUploading && <span className="text-blue-500 mt-2 animate-pulse">Uploading & Analyzing...</span>}
