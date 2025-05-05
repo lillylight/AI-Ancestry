@@ -23,11 +23,26 @@ const UploadArea: React.FC<UploadAreaProps> = ({ onDrop, isUploading, hasFile, i
     <div
       {...getRootProps()}
       className={
-        "relative flex flex-col items-center justify-center w-full max-w-[780px] min-h-[390px] p-0 bg-transparent rounded-[2.5rem] upload-area-lux " +
+        "relative flex flex-col items-center justify-center upload-area-lux " +
         (!hasFile ? "animate-premium-pop " : "") +
         styles.uploadAreaAnimated
       }
-      style={{overflow:'hidden', border:'none', boxShadow:'none', background: 'transparent'}}
+      style={{
+        overflow: 'hidden',
+        border: 'none',
+        boxShadow: 'none',
+        background: 'transparent',
+        width: '100%',
+        maxWidth: 760,
+        minHeight: 340,
+        margin: '0 auto',
+        padding: '2.2rem 2.2rem 1.7rem 2.2rem',
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
     >
       {/* Top Spacer - adjust height as needed */}
       <div style={{ height: '32px', flexShrink: 0 }} />

@@ -21,7 +21,22 @@ const PremiumUploadArea: React.FC<PremiumUploadAreaProps> = ({ onDrop, isUploadi
     <div
       className={`relative premium-upload-area ${hasFile ? "has-file" : ""} ${isUploading ? "uploading" : ""}`}
       {...getRootProps()}
-      style={{ borderRadius: 32, border: "2.5px dashed #2f80ed", background: "linear-gradient(135deg, #f8fafc 60%, #e0e7ef 100%)", transition: "box-shadow 0.3s, transform 0.2s" }}
+      style={{
+        borderRadius: 32,
+        border: "2.5px dashed #2f80ed",
+        background: "linear-gradient(135deg, #f8fafc 60%, #e0e7ef 100%)",
+        transition: "box-shadow 0.3s, transform 0.2s",
+        width: "100%",
+        maxWidth: 760,
+        minHeight: 340,
+        margin: "0 auto",
+        padding: "2.2rem 2.2rem 1.7rem 2.2rem",
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
     >
       <input {...getInputProps()} ref={inputRef} />
       <div className="flex flex-col items-center justify-center py-10 animate-premium-pop">

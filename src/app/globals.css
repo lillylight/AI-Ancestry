@@ -37,7 +37,14 @@ body {
 }
 
 .openai-btn {
-  @apply inline-flex items-center justify-center rounded-xl font-semibold text-sm transition-all duration-200 ease-in-out;
+  /* Removed @apply for compatibility */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s;
   min-width: 60px;
   min-height: 32px;
   padding: 6px 12px;
@@ -216,6 +223,97 @@ body {
 .carousel-dot-btn:focus {
   outline: 2px solid #bdbdbd;
   outline-offset: 2px;
+}
+
+/* Responsive layout improvements */
+@media (max-width: 1024px) {
+  .openai-card {
+    padding: 1.4rem 1.2rem 1.2rem 1.2rem;
+    max-width: 98vw;
+  }
+  .floating-text-card > div {
+    min-width: 220px;
+    padding: 1.1rem 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 15px;
+  }
+  .openai-card {
+    padding: 0.8rem 0.5rem 0.8rem 0.5rem;
+    margin: 1.1rem 0;
+    max-width: 99vw;
+    border-radius: 14px;
+  }
+  .floating-result-text {
+    font-size: 1rem;
+    padding: 0.7rem 0.7rem;
+    border-radius: 11px;
+  }
+  .floating-text-card > div {
+    min-width: 120px;
+    padding: 0.7rem 0.5rem;
+    font-size: 0.98rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 540px) {
+  .openai-card {
+    padding: 0.4rem 0.1rem 0.4rem 0.1rem;
+    margin: 0.7rem 0;
+    border-radius: 9px;
+  }
+  .floating-result-text {
+    font-size: 0.93rem;
+    padding: 0.5rem 0.3rem;
+    border-radius: 8px;
+  }
+  .floating-text-card > div {
+    min-width: 60px;
+    padding: 0.3rem 0.1rem;
+    font-size: 0.93rem;
+    border-radius: 7px;
+  }
+}
+
+/* Responsive upload area for PremiumUploadArea and UploadArea */
+.premium-upload-area, .upload-area-lux {
+  width: 100%;
+  max-width: 760px;
+  min-height: 340px;
+  margin: 0 auto;
+  padding: 2.2rem 2.2rem 1.7rem 2.2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 900px) {
+  .premium-upload-area, .upload-area-lux {
+    max-width: 98vw;
+    min-height: 260px;
+    padding: 1.2rem 0.8rem 1.1rem 0.8rem;
+    border-radius: 18px;
+  }
+}
+@media (max-width: 600px) {
+  .premium-upload-area, .upload-area-lux {
+    max-width: 99vw;
+    min-height: 180px;
+    padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+    border-radius: 10px;
+  }
+  .premium-upload-area svg, .upload-area-lux svg {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
 }
 
 /* Carousel fade animation */
